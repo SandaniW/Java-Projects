@@ -1,2 +1,3 @@
-Projects I've done in the  Professional Certificate in Java Programming programme offered by IIT will be uploaded.
-This includes projects done as course work and the final project.
+# Java-Projects
+Projects I've done in the  Professional Certificate in Java Programming program, IIT offers will be uploaded.
+This includes projects done as coursework and the final project.
