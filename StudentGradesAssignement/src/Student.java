@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Student {
@@ -12,6 +13,7 @@ public class Student {
     int noOfStudents;
     ArrayList<Student> studentArrayList= new ArrayList<>();
     int count=0;
+    int i=0;
 
 
 
@@ -63,39 +65,35 @@ public class Student {
     public void setMark(int mark) {
         this.mark = mark;
     }
+
     public void obtainDetails(){
-        System.out.print("Enter student name: ");
-        setName(scan.next());
-        System.out.print("Enter student email: ");
-        setEmail(scan.next());
-        System.out.print("Enter student age: ");
-        setAge(scan.nextInt());
-        System.out.print("Enter student address: ");
-        setAddress(scan.next());
-        System.out.print("Enter student mark: ");
-        setMark(scan.nextInt());
-
-
-
-    }
-    public void numberOfStudents(){
-        Student student = new Student();
-
-        System.out.print("No of students entries: ");
+        InputException inputException = new InputException();
+        System.out.print("No of students to be entered: ");
         noOfStudents = scan.nextInt();
         if(noOfStudents>0) {
             for (count=0;count < noOfStudents; count++) {
+                Student student = new Student();
                 System.out.println("Enter student "+(count+1)+" details-> ");
-                student.obtainDetails();
-                studentArrayList.add(student);
+                System.out.print("Enter student name: ");
+                student.setName(scan.next());
+                System.out.print("Enter student email: ");
+                student.setEmail(scan.next());
+                System.out.print("Enter student age: ");
+                student.setAge(scan.nextInt());
+                System.out.print("Enter student address: ");
+                student.setAddress(scan.next());
+                System.out.print("Enter student mark: ");
+                inputException.marks(scan.nextInt());
+                System.out.println("----------------------------------------------");
             }
         }else{
-            System.out.println("Number of entries can't be zero or below");
+            System.out.println("Number of entries should be greater than 0");
 
         }
 
     }
     public String calculateGrade(){
+        if((mark>=0)&&(mark<=100)) {
             if (mark >= 90) {
                 grade = "A";
             } else if (mark >= 80) {
@@ -108,18 +106,23 @@ public class Student {
                 grade = "F";
             }
             return grade;
+        }else{
+            return "Mark should be between 0 and 100";
+
+        }
 
 
     }
     public void showDetails(){
         for(Student student: studentArrayList){
-            count++;
-            System.out.println("Student "+count);
+            i++;
+            System.out.println("Student "+i+" details: ");
             System.out.println("Name: "+student.getName());
             System.out.println("Email: "+student.getEmail());
             System.out.println("Age: "+student.getAge());
             System.out.println("Address: "+student.getAddress());
             System.out.println("Grade: "+student.calculateGrade());
+            System.out.println("----------------------------------------------------");
         }
 
 
