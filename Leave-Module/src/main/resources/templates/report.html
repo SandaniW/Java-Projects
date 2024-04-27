@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>leave report</title>
+</head>
+<body>
+<div align="center">
+    <h1>Employee Leave Report</h1>
+    <table border="1" cellpadding="10">
+        <thead>
+        <th>Employee_ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Annual leave</th>
+        <th>Casual leave</th>
+        <th>Medical leave</th>
+        </thead>
+        <tr th:each="employee: $(employees)">
+            <td th: text="${employee.empID}"></td>
+            <td th: text="${employee.firstName}"></td>
+            <td th: text="${employee.lastName}"></td>
+            <td th: text="${employee.annualLeave}"></td>
+            <td th: text="${employee.casualLeave}"></td>
+            <td th: text="${employee.medicalLeave}"></td>
+
+
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>

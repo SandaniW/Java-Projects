@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Employee</title>
+</head>
+<body>
+<div align="center">
+    <h1>Add New Employee</h1>
+    <form action="#" th:action th:object="${employee}" method="post">
+        <table border="" cellpadding="10">
+            <tr>
+                <td>Employee Id:</td>
+                <td><label>
+                    <input type="text" th:field="*{empID}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Department:</td>
+                <td><label>
+                    <input type="text" th:field="*{depId}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><label>
+                    <input type="text" th:field="*{firstName}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><label>
+                    <input type="text" th:field="*{lastName}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Contact No:</td>
+                <td><label>
+                    <input type="text" th:field="*{contactNumber}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Employee email:</td>
+                <td><label>
+                    <input type="text" th:field="*{empEmail}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Join Date:</td>
+                <td><label>
+                    <input type="date" th:field="*{joinDate}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Employee Status:</td>
+                <td><label for="status"></label>
+                    <select name="status"id="status"  th:field="*{empStatus}">
+                        <option value="Active">Active</option>
+                        <option value="Suspend">Suspend</option>
+                        <option value="Resigned">Resigned</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

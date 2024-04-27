@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<h2>Search Employees</h2>
+<form th:action="@{/admin/search}" method="get">
+  <div>
+    <label>Search by:</label>
+    <input type="radio" id="empId" name="searchCriteria" value="name">
+    <label for="empId">Employee ID</label>
+
+    <input type="radio" id="fname" name="searchCriteria" value="name">
+    <label for="fname">First Name</label>
+
+    <input type="radio" id="lname" name="searchCriteria" value="name">
+    <label for="lname">Last Name</label>
+
+    <input type="radio" id="contact" name="searchCriteria" value="name">
+    <label for="contact">Contact No</label>
+
+    <input type="radio" id="email" name="searchCriteria" value="name">
+    <label for="email">Employee email</label>
+
+    <input type="radio" id="join" name="searchCriteria" value="name">
+    <label for="join">Join Date</label>
+
+    <input type="radio" id="status" name="searchCriteria" value="name">
+    <label for="status">Status</label>
+
+
+  </div>
+  <div>
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="query" required>
+    <button type="submit">Search</button>
+  </div>
+</form>
+
+<script>
+  const searchCriteriaRadios = document.querySelectorAll('input[name="searchCriteria"]');
+  const searchInput = document.getElementById('search');
+
+  searchCriteriaRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+          if (this.value === 'joinDate') {
+              searchInput.type = 'date';
+          } else {
+              searchInput.type = 'text';
+          }
+      });
+  });
+</script>
+
+</body>
+</html>
+
