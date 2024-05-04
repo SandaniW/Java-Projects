@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login for Admin</title>
+</head>
+<body>
+<div align="center">
+    <h2>Admin Login</h2>
+    <!--error -> didn't mention the action properly -->
+    <form th:action="@{/hrm/login/admin}" method="post">
+        <div th:if="${error}" style="color: red;">Error: <span th:text="${error}"></span></div>
+        <div>
+            <label>Administrator Id:</label>
+            <input type="text" name="adminId">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="adminPassword">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

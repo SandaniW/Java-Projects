@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        body,html{height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;}
+        #bd{height: 100%;
+           background-color: rgb(242, 228, 253);}
+           h2{width:100%vh;
+        padding-top: 30px;
+     padding-bottom: 30px;
+     padding-left:5vw;
+  background-color: rgb(81, 0, 119);
+  color: white;
+  top: 0;
+  margin: 0;}
+  #leave{
+     text-align: center;
+     width: 150vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  }
+  #leave td{
+     background-color: rgba(0, 0, 0, 0.329);
+     color: white;
+     padding: 10px;
+     font-weight: bold;
+  }
+  #apply, h3{
+     margin-left: auto;
+     margin-right: auto;
+
+  }
+  h3, button{width: fit-content;}
+  button{margin-left: 25%;
+
+     width: 50vw;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=text], select, input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  </head>
+  <body id="bd">
+<span th:text="${Applied}"></span>
+<h2>Welcome, <span th:text="${firstName}"></span> <span th:text="${lastName}"></span>!</h2>
+<table id="leave">
+   <tr>
+      <td>Available Annual Leave</td>
+      <td>Available Casual Leave</td>
+      <td>Available Medical Leave</td>
+   </tr>
+   <tr>
+      <td><span th:text="${annual}"></span></td>
+      <td><span th:text="${medical}"></span></td>
+      <td><span th:text="${casual}"></span></td>
+   </tr>
+</table>
+<br>
+<h3>Apply for leave</h3>
+<form  action="#" th:action="@{/hrm/employee/dashboard}" method="post" th:object="${employeeLeave}">
+    <table id="apply">
+        <tr>
+            <!-- try using empId in path-->
+            <td>Employee Id:</td>
+            <td><input type="text" name="employee.empId" th:field="*{employee.empId}" placeholder="ex:10001"></td>
+            <!-- tried to get the empId from the ${empId} but it didnt work gave an error so have to explicitly enter-->
+            <!--object references an unsaved transient instance - save the transient instance before flushing-->
+        </tr>
+        <tr>
+            <td>Leave Type:</td>
+            <td><label for="leaveType"></label>
+                <select name="leaveType" id="leaveType" th:field="*{leaveType}">
+                    <option th:value="Annual">Annual Leave</option>
+                    <option th:value="Casual">Casual Leave</option>
+                    <option th:value="Medical">Medical Leave</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Reason:</td>
+            <td><input type="text" name="reason" th:field="*{reason}"></td>
+        </tr>
+        <tr>
+            <td>No of Leave Days:</td>
+            <td><input type="number" name="noOfLeaveDays" th:field="*{noOfLeaveDays}"></td>
+        </tr>
+        <tr>
+            <td>Leave Start date:</td>
+            <td><input type="text" name="leaveStartDate" th:field="*{leaveStartDate}"></td>
+        </tr>
+        <tr>
+            <td>Leave End date:</td>
+            <td><input type="text" name="leaveEndDate" th:field="*{leaveEndDate}"></td>
+        </tr>
+
+    </table>
+
+
+    <button type="submit">Apply For Leave</button>
+</form>
+
+</body>
+  </html>

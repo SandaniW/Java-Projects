@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+</head>
+<body>
+<div th:if="${added}" style="color: red;"><span th:text="${added}"></span></div>
+<h1>Update EMPLOYEE</h1>
+<form action="#" th:action="@{/hrm/admin/editEmployee/{empId}}{empId=${employee.empId}" th:object="${employee}" method="post">
+    <input type="hidden" th:field="*{empId}" />
+    <table border="" cellpadding="10">
+        <tr>
+            <td>Department:</td>
+            <td><label for="department"></label>
+                <select name="department.depId" id="department"  th:field="*{department.depId}"><!--*{department.depId}--><!--the name should also be the same as the field-->
+                    <option th:each="dep : ${departments}" th:value="${dep.depId}" th:text="${dep.depName}"></option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td><label>
+                <input type="text" name="firstName" th:field="*{firstName}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><label>
+                <input type="text" name="lastName" th:field="*{lastName}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>Contact No:</td>
+            <td><label>
+                <input type="text" name="contact" th:field="*{contact}">
+            </label></td>
+        </tr>
+        <tr>
+            <td>Employee email:</td>
+            <td><label>
+                <input type="text" name="email" th:field="*{email}">
+            </label>
+            </td>
+        </tr>
+        <tr>
+            <td>Join Date:</td>
+            <td><label>
+                <input type="text" name="joinDate" th:field="*{joinDate}">
+                <!--                    <input type="date" name="joinDate" th:field="*{joinDate}">-->
+            </label></td>
+        </tr>
+        <tr>
+            <td>Employee Status:</td>
+            <td><label for="status"></label>
+                <select name="status" id="status" th:field="*{status}">
+                    <option th:value="Active">Active</option>
+                    <option th:value="Suspend">Suspend</option>
+                    <option th:value="Resigned">Resigned</option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Update</button></td>
+        </tr>
+    </table>
+</form>
+
+</form>
+
+</body>
+</html>

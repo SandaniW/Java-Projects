@@ -35,9 +35,6 @@
         <td th:text="${employee.empEmail}"></td>
         <td th:text="${employee.joinDate}"></td>
         <td th:text="${employee.empStatus}"></td>
-        <td><a th:href="@{/admin/editEmployee/{empId}(empId=${employee.empID})}">Edit</a>
-            <a th:href="@{/admin/removeEmployee/{empId}(empId=${employee.empID})}">Remove</a>
-        </td>
     </tr>
 
     </tbody>

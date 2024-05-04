@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Leave Report</title>
+    <style>
+        body,html{width: 100vw;
+           margin: 0;
+           font-family: Arial, Helvetica, sans-serif;}
+           #bd{width: 90vw;
+              background-color: rgb(250, 228, 253);}
+     #emp tr,td{
+        color: white;
+        background-color: rgba(0, 0, 0, 0.322);
+        padding: 15px;
+
+     }
+     #emp {margin: 0;
+        width: 50vw;
+     }
+     a{
+        a{background-color: #fffd70;
+       color: black;
+       padding: 14px 25px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       cursor: pointer;
+       border-radius: 7px;
+       padding: 5vh;
+       margin: 1vh;
+       width:80%;
+       font-size: 23px;
+
+     }
+
+     a:hover, a:active {
+       background-color: rgba(0, 2, 107, 0.356);
+
+     }
+     }
+
+    </style>
+</head>
+<body id="bd">
+<h2>Employee Report</h2> <a th:href="@{/hrm/adminDashboard}">DashBoard</a>
+<table id="emp">
+    <thead>
+    <tr>
+        <th>Employee Id</th>
+        <th>First Name</th>
+        <th>Leave days taken</th>
+        <th>Leave Type</th>
+        <th>Reason</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employeeList}" th:field="employee">
+        <td>${employee.empId}</td>
+        <td>${employee.firstName}</td>
+        <td>${employee.employeeLeaveList.noOfLeaveDays}</td>
+        <td>${employee.employeeLeaveList.leaveType}</td>
+        <td>${employee.employeeLeaveList.reason}</td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

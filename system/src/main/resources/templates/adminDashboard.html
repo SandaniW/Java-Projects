@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body,html{height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;}
+        #bd{height: 100%;
+           background-color: rgb(191, 196, 240);}
+           h2{width:100%vh;
+        padding-top: 30px;
+     padding-bottom: 30px;
+     padding-left:5vw;
+  background-color: rgb(0, 0, 102);
+  color: white;
+  top: 0;
+  margin: 0;}
+  a{background-color: #fffd70;
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 5vh;
+    margin: 1vh;
+    width:80%;
+    font-size: 23px;
+
+  }
+
+  a:hover, a:active {
+    background-color: rgba(0, 2, 107, 0.356);
+
+  }
+  .links, .deptable{text-align: center;
+     width: 150vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;}
+  td{width: 50vh;}
+  .Department{background-color: rgba(61, 61, 61, 0.795);
+  padding: 15px;
+  color: aliceblue;}
+
+
+    </style>
+</head>
+<body id="bd">
+<span th:text="${added}"></span>
+<span th:text="${password}"></span>
+    <h2>Welcome!</h2>
+    <table class="links">
+        <tr>
+            <td><a th:href="@{/hrm/adminDashboard/search}">Search</a></td>
+            <td><a th:href="@{/hrm/adminDashboard/newEmp}">Add Employee</a></td>
+        </tr>
+        <tr>
+            <td><a th:href="@{/hrm/adminDashboard/editRemove}">Leave Requests(Not working yet)</a></td>
+            <td><a th:href="@{/hrm/adminDashboard/report}">Generate Report</a></td>
+        </tr>
+    </table>
+    <table class="deptable">
+        <tr class="Department">
+            <th class="Department">Department</th>
+            <th class="Department">No of Employees on Leave</th>
+        </tr>
+        <tr>
+            <td class="Department">It</td>
+            <td class="Department">~</td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
