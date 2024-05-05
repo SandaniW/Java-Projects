@@ -46,14 +46,30 @@
   .Department{background-color: rgba(61, 61, 61, 0.795);
   padding: 15px;
   color: aliceblue;}
+        .notif{
+        width: 100%;
+        font-size: 18px;
+        padding: 12px;
+        display: block;
+  position: relative;}
+        .close{
+         cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+        }
+        .close:hover{
+        background: #bbb}
 
 
     </style>
 </head>
 <body id="bd">
-<span th:text="${added}"></span>
-<span th:text="${password}"></span>
-    <h2>Welcome!</h2>
+<span  class="notif" th:text="${added}"><span class="close">x</span> </span>
+<span  class="notif" th:text="${password}"><span class="close"></span> </span>
+    <h2>HRM System</h2>
     <table class="links">
         <tr>
             <td><a th:href="@{/hrm/adminDashboard/search}">Search</a></td>

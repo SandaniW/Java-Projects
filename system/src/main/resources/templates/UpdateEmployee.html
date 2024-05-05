@@ -7,7 +7,7 @@
 <body>
 <div th:if="${added}" style="color: red;"><span th:text="${added}"></span></div>
 <h1>Update EMPLOYEE</h1>
-<form action="#" th:action="@{/hrm/admin/editEmployee/{empId}}{empId=${employee.empId}" th:object="${employee}" method="post">
+<form action="#" th:action="@{/hrm/admin/editEmployee/{empId}(empId=${employee.empId})}" th:object="${employee}" method="post">
     <input type="hidden" th:field="*{empId}" />
     <table border="" cellpadding="10">
         <tr>

@@ -45,22 +45,24 @@ public class AdminDashController {
         //keeping the above code so that i wont forget it again
         employeeService.addEmployee(employee);
         model.addAttribute("added", "Employee added successfully");
-        model.addAttribute("password","Default Password:0000");
+        model.addAttribute("password","Default Password: 0000 ");
         return "adminDashboard";
 
     }
 
     //edit
-    @GetMapping("/admin/editEmployee/{empId}")
+    @GetMapping("/editEmployee/{empId}")
     public String getEditEmployee(@PathVariable(name = "empId") long empId,Model model){ //,@RequestParam("departmentId") String departmentId
 //        Department department = departmentService.getDepartmentId(Long.parseLong(departmentId));
 //        employee.setDepartment(department);
         //same mistake as add new emp
         Employee employee = employeeService.getId(empId);
         model.addAttribute("employee",employee);
-        return "UpdateEmployee"; //redirect to the dashboard
+        model.addAttribute("departments",departmentService.getDepartmentList());
+        return "UpdateEmployee";
     }
-    @PostMapping("/admin/editEmployee/{empId}")
+
+    @PostMapping("/editEmployee/{empId}")
     public String editEmployee(@PathVariable(name = "empId") long empId,@ModelAttribute("employee")Employee employee){
         employeeService.addEmployee(employee);
         return "empSearch";
@@ -114,8 +116,9 @@ public class AdminDashController {
     //report - should work
     @GetMapping("/adminDashboard/report")
     public String empReport(Model model){
-        List<Employee> employeeList = employeeService.getAllEmployees();
-        model.addAttribute("employeeList",employeeList);
+        //had employee list here but hv to get leave list cuz not every emp might have a leave - my bad
+        List<EmployeeLeave> employeeLeaveList = employeeLeaveService.getEmployeeLeaveList();
+        model.addAttribute("employeeLeaveList",employeeLeaveList);
         return "empReport";
     }
 

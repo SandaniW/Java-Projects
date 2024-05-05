@@ -57,12 +57,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="employee : ${employeeList}" th:field="employee">
-        <td>${employee.empId}</td>
-        <td>${employee.firstName}</td>
-        <td>${employee.employeeLeaveList.noOfLeaveDays}</td>
-        <td>${employee.employeeLeaveList.leaveType}</td>
-        <td>${employee.employeeLeaveList.reason}</td>
+    <tr th:each="employeeLeave : ${employeeLeaveList}" th:field="employeeLeave">
+        <td th:text="${employeeLeave.employee.empId}"></td>
+        <td th:text="${employeeLeave.employee.firstName}"></td>
+        <td th:text="${employeeLeave.noOfLeaveDays}"></td>
+        <td th:text="${employeeLeave.leaveType}"></td>
+        <td th:text="${employeeLeave.reason}"></td>
     </tr>
     </tbody>
 </table>

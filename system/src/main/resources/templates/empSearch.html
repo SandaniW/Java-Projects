@@ -85,8 +85,8 @@ background-color: rgba(0, 0, 0, 0.445);
             <td th:text="${emp.status}"></td>
             <td th:text="${emp.department.depName}"></td>
             <td>
-                <!--<a th:href="@{/hrm/admin/editEmployee/{empId}} {empId=${employee.empId}">Edit</a>-->
-                <!--<a th:href="@{/hrm/deleteEmployee/{empId}} {empId=${employee.empId}">Delete</a>-->
+                <a th:href="@{/hrm/editEmployee/{empId}(empId=${emp.empId})}">Edit</a>
+                <a th:href="@{/hrm/deleteEmployee/{empId}(empId=${emp.empId})}">Delete</a>
             </td>
 
         </tr>

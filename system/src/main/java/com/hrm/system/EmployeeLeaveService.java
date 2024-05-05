@@ -14,4 +14,7 @@ public class EmployeeLeaveService {
         return employeeLeaveRepo.findByEmployee(employee);
     }
     public void addEmpLeave(EmployeeLeave employeeLeave){employeeLeaveRepo.save(employeeLeave);}
+    public List<EmployeeLeave> getEmployeeLeaveList(){
+        return employeeLeaveRepo.findAll();
+    }
 }
